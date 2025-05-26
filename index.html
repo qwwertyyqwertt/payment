@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pay Mukesh</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .logo {
+      margin-bottom: 1rem;
+    }
+    input {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    button {
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/PhonePe_Logo.png" alt="Logo" width="120" class="logo">
+    <h2>Pay Mukesh via UPI</h2>
+    <input type="number" id="amount" placeholder="Enter amount (e.g. 99)" />
+    <button onclick="makePayment()">Pay Now</button>
+    <p>UPI ID: <strong>mukeshpanth@slc</strong></p>
+  </div>
+
+  <script>
+    function makePayment() {
+      const amount = document.getElementById('amount').value;
+      if (!amount || parseFloat(amount) <= 0) {
+        alert('Please enter a valid amount.');
+        return;
+      }
+      const upiLink = `upi://pay?pa=mukeshpanth@slc&pn=Mukesh%20Panth&cu=INR&am=${amount}`;
+      window.location.href = upiLink;
+      // Optional redirect to thank-you after a delay (not reliable for actual payment confirmation)
+      setTimeout(() => {
+        window.location.href = "thank-you.html";
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
