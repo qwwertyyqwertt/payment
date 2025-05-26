@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pay via UPI</title>
+  <title>Pay Mukesh via UPI</title>
   <style>
     body {
       font-family: sans-serif;
@@ -59,7 +59,7 @@
     <h2>Pay Mukesh via UPI</h2>
     <input type="number" id="amount" placeholder="Enter amount (₹)" />
     <button onclick="makePayment()">Pay Now</button>
-    <p>UPI ID: <strong>8966029120-4@ybl</strong></p>
+    <p>UPI ID: <strong>BHARATPE09913647431@yesbankltd</strong></p>
   </div>
 
   <script>
@@ -70,7 +70,9 @@
         return;
       }
 
-      const upiLink = `upi://pay?pa=8966029120-4@ybl&pn=Mukesh%20Panth&cu=INR&am=${amount}`;
+      const upiID = "BHARATPE09913647431@yesbankltd";
+      const name = "Mukesh Panth";
+      const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&cu=INR&am=${amount}`;
       window.location.href = upiLink;
     }
   </script>
