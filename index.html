@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pay Mukesh</title>
+  <title>Pay via UPI</title>
   <style>
     body {
       font-family: sans-serif;
@@ -24,9 +24,6 @@
       width: 90%;
       max-width: 400px;
     }
-    .logo {
-      margin-bottom: 1rem;
-    }
     input {
       padding: 0.8rem;
       font-size: 1rem;
@@ -34,6 +31,7 @@
       border: 1px solid #ccc;
       margin-bottom: 1rem;
       width: 100%;
+      box-sizing: border-box;
     }
     button {
       padding: 1rem;
@@ -58,11 +56,10 @@
 <body>
 
   <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/PhonePe_Logo.png" alt="Logo" width="120" class="logo">
     <h2>Pay Mukesh via UPI</h2>
-    <input type="number" id="amount" placeholder="Enter amount (e.g. 99)" />
+    <input type="number" id="amount" placeholder="Enter amount (₹)" />
     <button onclick="makePayment()">Pay Now</button>
-    <p>UPI ID: <strong>mukeshpanth@slc</strong></p>
+    <p>UPI ID: <strong>8966029120-4@ybl</strong></p>
   </div>
 
   <script>
@@ -72,12 +69,9 @@
         alert('Please enter a valid amount.');
         return;
       }
-      const upiLink = `upi://pay?pa=8966029120@kotak811&pn=Mukesh%20Panth&cu=INR&am=${amount}`;
+
+      const upiLink = `upi://pay?pa=8966029120-4@ybl&pn=Mukesh%20Panth&cu=INR&am=${amount}`;
       window.location.href = upiLink;
-      // Optional redirect to thank-you after a delay (not reliable for actual payment confirmation)
-      setTimeout(() => {
-        window.location.href = "thank-you.html";
-      }, 5000);
     }
   </script>
 
